@@ -1,7 +1,7 @@
 # Webmeji ৻(  •̀ ᗜ •́  ৻)
 This version lets the classic [shimeji desktop buddy](https://kilkakon.com/shimeji/) be displayed as part of your personal website, so that any visitor can see your favs walking around on the bottom of your page(s)!
 
-[<h1>view the demo here ^-^</h1>](https://webmeji.neocities.org/)
+[view the demo here ^-^](https://webmeji.neocities.org/)
 
 Currently, the files in this repo have three example characters that each can:
 - Walk around on the bottom of your page!
