@@ -34,6 +34,15 @@ shime1.png, shime2.png, etc.
 
 That’s it! Open your HTML in a browser and your character should be walking around!
 
+# Notes:
+- Currently tested on chrome-based browsers, both mobile and desktop.
+ 
+- Display sizes can be altered in the style.css, simply change the width and height (keep the same ratio!)(sizes for mobile displays should be changed in the @media section)
+  
+- Add the lines in step 2 to every single page you want to display the shimeji on, it does not magically appear on all the pages
+  
+- There are MANY many custom shimeji sprites online, if a character/source/theme is popular enough someone will have made one already!
+
 # Not working?
 
 - Check that main.js and style.css are correctly linked in your HTML.
