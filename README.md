@@ -1,7 +1,9 @@
 # Webmeji ৻(  •̀ ᗜ •́  ৻)
 This version lets the classic [shimeji desktop buddy](https://kilkakon.com/shimeji/) be displayed as part of your personal website, so that any visitor can see your favs walking around on the bottom of your page(s)!
 
-[<h1>view the demo here ^-^</h1>](https://webmeji.neocities.org/)
+[view the demo here ^-^](https://webmeji.neocities.org/)
+(Currently tested on windows, chrome-based browsers. both mobile and desktop.)
+
 
 Currently, the files in this repo have three example characters that each can:
 - Walk around on the bottom of your page!
@@ -33,6 +35,13 @@ shime1.png, shime2.png, etc.
  ```creatures.push(new Creature('webmeji-1', MIKU_CONFIG));``` & ```creatures.push(new Creature('webmeji-2', MIKU_CONFIG));```
 
 That’s it! Open your HTML in a browser and your character should be walking around!
+
+# Notes: 
+- Display sizes can be altered in the style.css, simply change the width and height (keep the same ratio!)(sizes for mobile displays should be changed in the @media section)
+  
+- Add the lines in step 2 to every single page you want to display the shimeji on, it does not magically appear on all the pages
+  
+- There are MANY many custom shimeji sprites online, if a character/source/theme is popular enough someone will have made one already!
 
 # Not working?
 
