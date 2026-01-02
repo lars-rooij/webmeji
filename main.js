@@ -39,9 +39,14 @@ window.addEventListener('DOMContentLoaded', () => {
             interval: 150, loops: 3 },
     dance: { frames: ["miku/shime5.png", "miku/shime6.png", "miku/shime1.png"], 
             interval: 200, loops: 2 },
+    
+    // falling directly after sitting down can look awkward, so to these actions can be forced after others
+
     // amount of loops to walk after doing a special action
-    // falling directly after sitting down can look awkward, so force it to walk for a few loops
     forcewalk: 6, 
+    forcethink:  { frames: ["miku/shime27.png", "miku/shime28.png"], 
+        interval: 300, loops: 3 },
+
     // set frequency of actions
     ORIGINAL_ACTIONS: ['walk', 'walk','walk','walk','walk','walk','spin','spin','spin','sit','sit','dance','dance', 'dance','dance', 'dance','dance', 'dance','dance','trip']
   };
@@ -143,6 +148,12 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      if (this.forceThinkAfter) {
+        this.forceThinkAfter = false
+        this.startForceThink()
+        return;
+      }
+
       this.currentActionIndex++;
       if (this.currentActionIndex >= this.actionSequence.length) {
         this.currentActionIndex = 0;
@@ -159,6 +170,13 @@ window.addEventListener('DOMContentLoaded', () => {
       const walkCycles = this.spriteConfig.forcewalk;
       this.currentAction = 'forced-walk';
       this.playAnimation(frames, interval, walkCycles, () => this.setNextAction());
+    }
+
+    // force a short animation
+    startForceThink() {
+      const { frames, interval, loops } = this.spriteConfig.forcethink;
+      this.currentAction = 'force-think';
+      this.playAnimation(frames, interval, loops, () => this.setNextAction());
     }
 
     // start the action
@@ -182,7 +200,8 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // play the animation and callback
+      // play the special animations and callback
+      // forced animations (walk, think) play in this order. adding 'dance' to forcewalk will make it first trigger a walk, and forcethink right after.
       this.playAnimation(frames, interval, loops, () => {
         // flip the frame after spinning
         if (action === 'spin') {
@@ -190,8 +209,12 @@ window.addEventListener('DOMContentLoaded', () => {
           this.updateImageDirection();
         }
         // force walking after special action
-        if (['trip', 'dance', 'spin'].includes(action)) {
+        if (['trip', 'spin'].includes(action)) {
           this.forceWalkAfter = true;
+        }
+
+        if (action === 'dance') {
+          this.forceThinkAfter = true;
         }
         this.setNextAction();
       });
@@ -229,6 +252,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const delta = (time - this.lastTime) / 1000;
       this.lastTime = time;
 
+      // with new animations, if you want them to move horizontally, add it here
       if (this.currentAction === 'walk' || this.currentAction === 'forced-walk') {
         this.position += this.direction * this.spriteConfig.speed * delta;
 
