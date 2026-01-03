@@ -45,10 +45,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // amount of loops to walk after doing a special action
     forcewalk: 6, 
     forcethink:  { frames: ["miku/shime27.png", "miku/shime28.png"], 
-        interval: 300, loops: 3 },
+        interval: 500, loops: 2 },
 
     // set frequency of actions
-    ORIGINAL_ACTIONS: ['walk', 'walk','walk','walk','walk','walk','spin','spin','spin','sit','sit','dance','dance', 'dance','dance', 'dance','dance', 'dance','dance','trip']
+    ORIGINAL_ACTIONS: ['walk', 'walk','walk','walk','walk','walk','spin','spin','spin','sit','sit','dance','dance', 'dance', 'dance','dance','trip']
   };
       
   class Creature {
@@ -139,6 +139,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // next action in actionsequence, or reshuffle the actionsequence
     // set forcewalk for special actions
+    // forced animations (walk, think) play in this order.
+
     setNextAction() {
       this.resetAnimation();
 
@@ -201,7 +203,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       // play the special animations and callback
-      // forced animations (walk, think) play in this order. adding 'dance' to forcewalk will make it first trigger a walk, and forcethink right after.
+      // having per example 'dance' in both forcewalk and forcethink makes it do both, according to the order in setNextAnimation
       this.playAnimation(frames, interval, loops, () => {
         // flip the frame after spinning
         if (action === 'spin') {
