@@ -1,30 +1,5 @@
+/* bare bones testing setup, do not use. */
+
 body {
   background-color: #fef9ca;
 }
-
-/* web shimeji */
-.webmeji-container {
-  position: fixed;
-  bottom: 0;
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  z-index: 9999;
-}
-
-.webmeji-container img {
-  width: 100%;
-  height: auto;
-  user-select: none;
-  pointer-events: none;
-  display: block;
-  transform-origin: center;
-}
-
-@media (max-width: 768px) {
-  .webmeji-container {
-    width: 50px;
-    height: 50px;
-  }
-}
-
