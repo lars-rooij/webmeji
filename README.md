@@ -7,7 +7,7 @@ Put together by: Lars de Rooij <br>
 Last updated: 27 january 2026 <br>
 Homepage & live demo: [webmeji.neocities.org](https://webmeji.neocities.org/) 
 
-(Though it should all work everywhere, it's been developed on: windows & android chrome-based browsers, both mobile and desktop.)
+(Though it should all work pretty ok everywhere, it's been developed on: windows chrome-based browsers, mainly on desktop. It's possible that on mobile screens a few things don't get alligned properly)
 
 # Webmeji can:
 - Walk around on the bottom, where it randomly decides to; stand still, sit on the ground, do a little dance, or trip! 
